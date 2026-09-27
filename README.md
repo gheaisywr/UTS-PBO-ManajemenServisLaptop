@@ -1544,12 +1544,12 @@ Program dapat dijalankan menggunakan NetBeans.
 6. Masukkan nomor menu sesuai fitur yang ingin digunakan.
 
 Menu utama terdiri dari:
-- 1. Tambah Data Servis
-- 2. Tampilkan Data Servis
-- 3. Ubah Data Servis
-- 4. Hapus Data Servis
-- 5. Cari Data Servis
-- 6. Keluar
+- Tambah Data Servis
+- Tampilkan Data Servis
+- Ubah Data Servis
+- Hapus Data Servis
+- Cari Data Servis
+- Keluar
 
 # 27. Kesimpulan
 
