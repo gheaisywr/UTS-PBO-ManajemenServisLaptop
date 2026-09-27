@@ -20,7 +20,7 @@ untuk memenuhi **Tugas UTS Project Pemrograman Berorientasi Objek.**
 
 ## 1. Studi Kasus
 
-### Sistem Pengelolaan Servis Laptop
+### Sistem Manajemen Servis Laptop
 
 Program yang dibuat adalah **Sistem Manajemen Servis Laptop**. Program
 ini digunakan untuk membantu mencatat dan mengelola data pelanggan, data
