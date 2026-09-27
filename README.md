@@ -1,4 +1,4 @@
-# Sistem Pengelolaan Servis Laptop
+# Sistem Manajemen Servis Laptop
 
 ------------------------------------------------------------------------
 
@@ -22,7 +22,7 @@ untuk memenuhi **Tugas UTS Project Pemrograman Berorientasi Objek.**
 
 ### Sistem Pengelolaan Servis Laptop
 
-Program yang dibuat adalah **Sistem Pengelolaan Servis Laptop**. Program
+Program yang dibuat adalah **Sistem Manajemen Servis Laptop**. Program
 ini digunakan untuk membantu mencatat dan mengelola data pelanggan, data
 perangkat, serta data servis dalam satu sistem sederhana.
 
