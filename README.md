@@ -1428,7 +1428,7 @@ Komputer
 Servis
 ServisController
 MenuView
-ManajemenServisLaptop
+ServisLaptop
 ```
 
 Setiap class memiliki tugas masing-masing.
@@ -1536,9 +1536,9 @@ Keluar**.
 
 Program dapat dijalankan menggunakan NetBeans.
 
-1. Buka project `ManajemenServisLaptop` di NetBeans.
+1. Buka project `ServisLaptop` di NetBeans.
 2. Pastikan seluruh package dan class sudah tersedia.
-3. Buka class `ManajemenServisLaptop`.
+3. Buka class `ServisLaptop`.
 4. Jalankan program dengan memilih **Run Project** atau menekan tombol **Run**.
 5. Program akan menampilkan menu utama pada terminal.
 6. Masukkan nomor menu sesuai fitur yang ingin digunakan.
