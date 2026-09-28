@@ -480,7 +480,7 @@ public class ServisController {
     private int pilihJenisLaptop() {
 
         System.out.println("\n--- JENIS LAPTOP ---");
-        System.out.println("1. Laptop Biasa");
+        System.out.println("1. Laptop");
         System.out.println("2. Laptop Gaming");
 
         while (true) {
