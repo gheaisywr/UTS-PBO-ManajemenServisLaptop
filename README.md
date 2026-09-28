@@ -107,7 +107,7 @@ ServisLaptop
 Package `model` berisi class yang digunakan untuk merepresentasikan data
 dalam program.
 
-<img width="122" height="83" alt="image" src="https://github.com/user-attachments/assets/7b76992d-b12a-4258-b51c-5d26987bb13e" />
+<img width="155" height="94" alt="image" src="https://github.com/user-attachments/assets/ebd3dc9f-b858-4c8e-a8df-aa5e440d3c6d" />
 
 Class yang terdapat di dalamnya yaitu:
 
