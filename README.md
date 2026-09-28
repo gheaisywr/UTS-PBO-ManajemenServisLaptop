@@ -86,7 +86,7 @@ ServisLaptop
 │   ├── Pelanggan.java
 │   ├── Perangkat.java
 │   ├── Laptop.java
-|   ├── LaptopGaming.java
+│   ├── LaptopGaming.java
 │   ├── Komputer.java
 │   └── Servis.java
 │
@@ -475,8 +475,7 @@ berbeda sesuai dengan jenis perangkat.
 public void tampilkanInfo()
 ```
 
-Pada saat program membuat perangkat, tipe object dapat berupa `Laptop`
-atau `Komputer`.
+Pada saat program membuat perangkat, tipe object dapat berupa `Laptop`, `LaptopGaming`, atau `Komputer`.
 
 Contohnya:
 
@@ -485,12 +484,26 @@ Perangkat perangkat;
 
 if (pilihanJenis == 1) {
 
-    perangkat = new Laptop(
-        idPerangkat,
-        merk,
-        tipe,
-        kerusakan
-    );
+    int pilihanLaptop = pilihJenisLaptop();
+
+    if (pilihanLaptop == 1) {
+
+        perangkat = new Laptop(
+            idPerangkat,
+            merk,
+            tipe,
+            kerusakan
+        );
+
+    } else {
+
+        perangkat = new LaptopGaming(
+            idPerangkat,
+            merk,
+            tipe,
+            kerusakan
+        );
+    }
 
 } else {
 
@@ -1152,7 +1165,7 @@ Jika pengguna memilih `1. Laptop`, program akan menampilkan pilihan
 jenis laptop:
 
 ```text
-1. Laptop Biasa
+1. Laptop
 2. Laptop Gaming
 ```
 
