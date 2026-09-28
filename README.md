@@ -72,7 +72,7 @@ mengurangi kesalahan ketika pengguna memasukkan data.
 
 ------------------------------------------------------------------------
 
-## 2. Struktur Package dan MVC (Nilai Tambah)
+## 2. Struktur Package dan MVC
 
 Program menggunakan struktur **MVC (Model-View-Controller)** agar bagian
 data, tampilan, dan proses program dapat dipisahkan.
@@ -464,7 +464,7 @@ public class LaptopGaming extends Laptop {
 ```
 ------------------------------------------------------------------------
 
-## 6. Polymorphism (Nilai Tambah)
+## 6. Polymorphism 
 
 Program menerapkan **polymorphism melalui method overriding**.
 
