@@ -264,6 +264,7 @@ public void tampilkanInfo() {
 }
 ```
 Class `Laptop` juga menjadi superclass bagi class `LaptopGaming`.
+
 ------------------------------------------------------------------------
 
 ### 4.3 `Komputer`
@@ -409,15 +410,18 @@ Struktur inheritance pada program adalah:
               |
               |
         LaptopGaming
+```
 
 Program menerapkan dua pola inheritance, yaitu:
 
-1. **Hierarchical Inheritance**\
+
+1. **Hierarchical Inheritance**
 
 ```text
 Perangkat
 ├── Laptop
 └── Komputer
+```
 
 Satu superclass yaitu Perangkat memiliki dua subclass langsung,
 yaitu `Laptop` dan `Komputer`.
@@ -443,7 +447,7 @@ public class Komputer extends Perangkat {
 Dengan penerapan inheritance, data umum seperti ID perangkat, merk,
 tipe, dan kerusakan cukup didefinisikan pada `Perangkat`.
 
-2. **Multilevel Inheritance**\
+2. **Multilevel Inheritance**
    
 ```text
 Perangkat
