@@ -1694,12 +1694,12 @@ Pilih Menu
        ▼
      Pilih Perangkat
        │
-       ├── `Laptop`
+       ├── Laptop
        │    │
-       │    ├── `Laptop`
-       │    └── `Laptop Gaming`
+       │    ├── Laptop
+       │    └── Laptop Gaming
        │
-       └── `Komputer`
+       └── Komputer
 ```
 
 Program akan terus menampilkan menu sampai pengguna memilih pilihan **6.
