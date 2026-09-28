@@ -1331,8 +1331,7 @@ memasukkan data perangkat, kemudian memasukkan data servis.
 
 Data berhasil ditambahkan dengan ID servis `S005`.
 
-<img width="191" height="284" alt="Screenshot 2026-09-24 072932" src="https://github.com/user-attachments/assets/c0a6fb14-3ca1-4470-8cae-f133f97c61ef" />
-
+<img width="192" height="350" alt="image" src="https://github.com/user-attachments/assets/0e96f58f-a274-4ccf-b444-ddfaa983735f" />
 
 Program menampilkan:
 
@@ -1529,6 +1528,22 @@ Tanggal tidak boleh kosong!
 
 <img width="184" height="26" alt="kosong" src="https://github.com/user-attachments/assets/b8ad9abf-1157-409d-a7b5-f3d6de88445d" />
 
+### 6. Validasi Jenis Laptop
+
+Ketika pengguna memasukkan pilihan `3`:
+
+```text
+--- JENIS LAPTOP ---
+1. Laptop
+2. Laptop Gaming
+```
+
+```text
+Pilih jenis laptop: 3
+Pilihan hanya 1 atau 2!
+```
+
+<img width="137" height="67" alt="image" src="https://github.com/user-attachments/assets/a6ef61fa-6767-4a81-bf2b-5137ceffe14d" />
 
 ------------------------------------------------------------------------
 
@@ -1545,6 +1560,7 @@ Program memiliki beberapa class:
 Pelanggan
 Perangkat
 Laptop
+LaptopGaming
 Komputer
 Servis
 ServisController
@@ -1588,16 +1604,17 @@ terhadap class, atribut, constructor, dan method.
 
 Inheritance diterapkan dengan hubungan:
 
-``` text
+```text
 Perangkat
-   ├── Laptop
-   └── Komputer
+├── Laptop
+│   └── LaptopGaming
+└── Komputer
 ```
 
 ### 7. Polymorphism
 
 Polymorphism diterapkan menggunakan method overriding pada
-`tampilkanInfo()` di class `Laptop` dan `Komputer`.
+`tampilkanInfo()` di class `Laptop`, `Komputer`, dan `LaptopGaming`.
 
 ### 8. ArrayList
 
@@ -1648,6 +1665,26 @@ Alur program secara sederhana adalah:
                    SELESAI
 ```
 
+Alur percabangan Menu Tambah:
+```text
+Pilih Menu
+  │
+  └── Tambah
+       │
+       ▼
+     Data Pelanggan
+       │
+       ▼
+     Pilih Perangkat
+       │
+       ├── `Laptop`
+       │    │
+       │    ├── `Laptop`
+       │    └── `Laptop Gaming`
+       │
+       └── `Komputer`
+```
+
 Program akan terus menampilkan menu sampai pengguna memilih pilihan **6.
 Keluar**.
 
@@ -1688,11 +1725,18 @@ Berorientasi Objek seperti class, object, constructor, encapsulation,
 access modifier, getter dan setter.
 
 Program juga menerapkan **inheritance** dengan `Perangkat` sebagai
-superclass dan `Laptop` serta `Komputer` sebagai subclass.
+superclass dan `Laptop` serta `Komputer` sebagai subclass langsung.
+
+Selain itu, `LaptopGaming` merupakan subclass dari `Laptop`, sehingga
+program juga menerapkan multilevel inheritance melalui hubungan
+`Perangkat → Laptop → LaptopGaming`.
+
+Dengan demikian, program memiliki penerapan hierarchical inheritance dan
+multilevel inheritance.
 
 Selain itu, program menerapkan **polymorphism melalui method
-overriding**, karena `Laptop` dan `Komputer` memiliki implementasi
-`tampilkanInfo()` masing-masing.
+overriding**, karena `Laptop`, `Komputer`, dan `LaptopGaming` memiliki
+implementasi `tampilkanInfo()` masing-masing.
 
 Program juga menggunakan struktur **MVC** yang memisahkan bagian model,
 controller, dan view agar program lebih terorganisir.
