@@ -32,8 +32,11 @@ servis, melihat data yang sudah tersimpan, mengubah data servis,
 menghapus data servis, dan mencari data berdasarkan ID servis.
 
 Pada pengembangan terbaru, perangkat yang dapat dipilih terdiri dari dua
-jenis, yaitu **Laptop** dan **Komputer**. Keduanya merupakan turunan
+jenis utama, yaitu **Laptop** dan **Komputer**. Keduanya merupakan turunan
 dari class `Perangkat`.
+
+Pada jenis Laptop, terdapat turunan lebih lanjut yaitu **Laptop Gaming**
+yang merupakan subclass dari class `Laptop`.
 
 Dalam pembuatannya, program menggunakan konsep **Pemrograman
 Berorientasi Objek (PBO)**. Data dan proses program dibagi ke dalam
@@ -83,6 +86,7 @@ ServisLaptop
 │   ├── Pelanggan.java
 │   ├── Perangkat.java
 │   ├── Laptop.java
+|   ├── LaptopGaming.java
 │   ├── Komputer.java
 │   └── Servis.java
 │
@@ -110,6 +114,7 @@ Class yang terdapat di dalamnya yaitu:
 -   `Pelanggan`
 -   `Perangkat`
 -   `Laptop`
+-   `LaptopGaming`
 -   `Komputer`
 -   `Servis`
 
@@ -158,29 +163,29 @@ Program menggunakan beberapa class yang memiliki fungsi berbeda.
 
 ### Class yang Digunakan
 
--   **Perangkat** → sebagai superclass yang menyimpan data umum
-    perangkat.
--   **Laptop** → subclass dari `Perangkat` untuk jenis perangkat laptop.
--   **Komputer** → subclass dari `Perangkat` untuk jenis perangkat
-    komputer.
--   **Pelanggan** → menyimpan informasi mengenai pelanggan.
--   **Servis** → menyimpan informasi mengenai proses servis.
--   **ServisController** → mengatur proses CRUD, validasi, dan
-    penyimpanan data.
--   **MenuView** → menangani tampilan menu utama.
--   **ServisLaptop** → menjadi class utama untuk menjalankan
-    program.
+- **Perangkat** → sebagai superclass yang menyimpan data umum perangkat.
+- **Laptop** → subclass dari `Perangkat` untuk jenis perangkat laptop.
+- **LaptopGaming** → subclass dari `Laptop` untuk jenis laptop gaming.
+- **Komputer** → subclass dari `Perangkat` untuk jenis perangkat komputer.
+- **Pelanggan** → menyimpan informasi mengenai pelanggan.
+- **Servis** → menyimpan informasi mengenai proses servis.
+- **ServisController** → mengatur proses CRUD, validasi, dan penyimpanan data.
+- **MenuView** → menangani tampilan menu utama.
+- **ServisLaptop** → menjadi class utama untuk menjalankan program.
 
 Hubungan inheritance pada program dapat digambarkan sebagai berikut:
 
 ``` text
                  Perangkat
                 Superclass
-                /        \
-               /          \
-              ▼            ▼
-          Laptop        Komputer
-          Subclass       Subclass
+                /         \
+               ▼           ▼
+           Laptop       Komputer
+           Subclass      Subclass
+              │
+              ▼
+        LaptopGaming
+          Subclass
 ```
 
 Class `Laptop` dan `Komputer` sama-sama mewarisi class `Perangkat`.
@@ -258,7 +263,7 @@ public void tampilkanInfo() {
     System.out.println("Kerusakan    : " + getKerusakan());
 }
 ```
-
+Class `Laptop` juga menjadi superclass bagi class `LaptopGaming`.
 ------------------------------------------------------------------------
 
 ### 4.3 `Komputer`
@@ -286,8 +291,42 @@ Dengan adanya `Laptop` dan `Komputer`, pengguna dapat memilih jenis
 perangkat ketika melakukan tambah data servis.
 
 ------------------------------------------------------------------------
+### 4.4 `LaptopGaming`
 
-### 4.4 `Pelanggan`
+Class `LaptopGaming` merupakan subclass dari class `Laptop`.
+
+```java
+public class LaptopGaming extends Laptop {
+
+Class ini mewarisi atribut dan method dari `Laptop` serta secara tidak
+langsung mewarisi data dari `Perangkat`.
+
+Constructor `LaptopGaming` menggunakan `super()` untuk memanggil
+constructor dari class `Laptop`.
+
+```java
+super(idPerangkat, merk, tipe, kerusakan);
+```
+
+Class `LaptopGaming` juga melakukan method overriding pada method
+`tampilkanInfo()`.
+
+```java
+@Override
+public void tampilkanInfo() {
+
+    System.out.println("Jenis        : Laptop Gaming");
+    System.out.println("ID Perangkat : " + getIdPerangkat());
+    System.out.println("Merk         : " + getMerk());
+    System.out.println("Tipe         : " + getTipe());
+    System.out.println("Kerusakan    : " + getKerusakan());
+}
+```
+
+Dengan demikian, `LaptopGaming` menjadi turunan dari `Laptop`.
+
+------------------------------------------------------------------------
+### 4.5 `Pelanggan`
 
 Class `Pelanggan` digunakan untuk menyimpan data orang yang menggunakan
 layanan servis.
@@ -322,7 +361,7 @@ public class Pelanggan {
 
 ------------------------------------------------------------------------
 
-### 4.5 `Servis`
+### 4.6 `Servis`
 
 Class `Servis` digunakan untuk menyimpan informasi mengenai proses
 servis.
@@ -359,20 +398,29 @@ yang berkaitan.
 
 ## 5. Inheritance
 
-Inheritance diterapkan dengan menggunakan satu superclass dan dua
-subclass.
+Inheritance diterapkan dengan menggunakan superclass dan beberapa subclass.
 
 Struktur inheritance pada program adalah:
 
-``` text
+```text
                  Perangkat
-                Superclass
-                /        \
-               /          \
-              ▼            ▼
-          Laptop        Komputer
-          Subclass       Subclass
-```
+                /         \
+           Laptop       Komputer
+              |
+              |
+        LaptopGaming
+
+Program menerapkan dua pola inheritance, yaitu:
+
+1. **Hierarchical Inheritance**\
+
+```text
+Perangkat
+├── Laptop
+└── Komputer
+
+Satu superclass yaitu Perangkat memiliki dua subclass langsung,
+yaitu `Laptop` dan `Komputer`.
 
 Class `Perangkat` menjadi superclass:
 
@@ -395,6 +443,21 @@ public class Komputer extends Perangkat {
 Dengan penerapan inheritance, data umum seperti ID perangkat, merk,
 tipe, dan kerusakan cukup didefinisikan pada `Perangkat`.
 
+2. **Multilevel Inheritance**\
+   
+```text
+Perangkat
+   ↓
+Laptop
+   ↓
+LaptopGaming
+
+`LaptopGaming` merupakan subclass dari `Laptop`, sedangkan `Laptop`
+merupakan subclass dari `Perangkat`.
+
+```java
+public class LaptopGaming extends Laptop {
+```
 ------------------------------------------------------------------------
 
 ## 6. Polymorphism (Nilai Tambah)
@@ -402,7 +465,10 @@ tipe, dan kerusakan cukup didefinisikan pada `Perangkat`.
 Program menerapkan **polymorphism melalui method overriding**.
 
 Method `tampilkanInfo()` terdapat pada class `Perangkat`, kemudian
-dioverride oleh `Laptop` dan `Komputer`.
+dioverride oleh `Laptop`, `Komputer`, dan `LaptopGaming`.
+
+Ketiga class tersebut memiliki implementasi `tampilkanInfo()` yang
+berbeda sesuai dengan jenis perangkat.
 
 ``` java
 @Override
@@ -451,6 +517,9 @@ Jika object merupakan `Laptop`, maka method `tampilkanInfo()` dari class
 
 Jika object merupakan `Komputer`, maka method `tampilkanInfo()` dari
 class `Komputer` yang digunakan.
+
+Jika object merupakan `LaptopGaming`, maka method `tampilkanInfo()`
+dari class `LaptopGaming` yang digunakan.
 
 Dengan demikian, program telah menerapkan polymorphism melalui **method
 overriding**.
@@ -554,6 +623,17 @@ Jika memilih Laptop:
 
 ``` java
 Perangkat perangkat = new Laptop(
+    idPerangkat,
+    merk,
+    tipe,
+    kerusakan
+);
+```
+
+Jika memilih Laptop Gaming:
+
+```java
+Perangkat perangkat = new LaptopGaming(
     idPerangkat,
     merk,
     tipe,
@@ -680,10 +760,10 @@ Nama         : Rizky Maulana
 No Telepon   : 081234567803
 Alamat       : Jl. Juanda Samarinda
 
-Jenis        : Laptop
-ID Laptop    : L002
-Merk         : Acer
-Tipe         : Aspire 5
+Jenis        : Laptop Gaming
+ID Perangkat : LG001
+Merk         : ASUS
+Tipe         : ROG Strix G15
 Kerusakan    : Layar laptop bergaris
 
 ID Servis    : S003
@@ -828,6 +908,20 @@ Pengguna terlebih dahulu memilih jenis perangkat:
 1. Laptop
 2. Komputer
 ```
+
+Jika pengguna memilih Laptop, program akan menampilkan pilihan lanjutan:
+
+--- JENIS LAPTOP ---
+1. Laptop
+2. Laptop Gaming
+
+Jika memilih `Laptop`, object yang dibuat adalah `Laptop`.
+
+Jika memilih `Laptop Gaming`, object yang dibuat adalah `LaptopGaming`.
+
+Jika pengguna memilih `Komputer` pada pilihan pertama, object yang dibuat
+adalah `Komputer`.
+
 
 Kemudian memasukkan:
 
@@ -1054,6 +1148,18 @@ Pilih jenis perangkat: 3
 Pilihan hanya 1 atau 2!
 ```
 
+Jika pengguna memilih `1. Laptop`, program akan menampilkan pilihan
+jenis laptop:
+
+```text
+1. Laptop Biasa
+2. Laptop Gaming
+
+```text
+Pilihan hanya 1 atau 2!
+```
+
+
 ### Validasi Status
 
 Status hanya dapat dipilih:
@@ -1174,12 +1280,26 @@ Contohnya pada pemilihan jenis perangkat:
 ``` java
 if (pilihanJenis == 1) {
 
-    perangkat = new Laptop(
-        idPerangkat,
-        merk,
-        tipe,
-        kerusakan
-    );
+    int pilihanLaptop = pilihJenisLaptop();
+
+    if (pilihanLaptop == 1) {
+
+        perangkat = new Laptop(
+            idPerangkat,
+            merk,
+            tipe,
+            kerusakan
+        );
+
+    } else {
+
+        perangkat = new LaptopGaming(
+            idPerangkat,
+            merk,
+            tipe,
+            kerusakan
+        );
+    }
 
 } else {
 
