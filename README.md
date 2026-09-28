@@ -911,7 +911,7 @@ Pengguna terlebih dahulu memilih jenis perangkat:
 
 Jika pengguna memilih Laptop, program akan menampilkan pilihan lanjutan:
 
---- JENIS LAPTOP ---
+**JENIS LAPTOP**
 1. Laptop
 2. Laptop Gaming
 
@@ -1154,6 +1154,7 @@ jenis laptop:
 ```text
 1. Laptop Biasa
 2. Laptop Gaming
+```
 
 ```text
 Pilihan hanya 1 atau 2!
