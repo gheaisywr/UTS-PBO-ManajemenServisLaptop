@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import model.Komputer;
 import model.Laptop;
+import model.LaptopGaming;
 import model.Pelanggan;
 import model.Perangkat;
 import model.Servis;
@@ -46,7 +47,6 @@ public class ServisController {
 
         daftarServis.add(servis1);
 
-
         // =========================
         // DUMMY DATA 2
         // =========================
@@ -76,7 +76,6 @@ public class ServisController {
 
         daftarServis.add(servis2);
 
-
         // =========================
         // DUMMY DATA 3
         // =========================
@@ -88,10 +87,10 @@ public class ServisController {
                 "Jl. Juanda Samarinda"
         );
 
-        Perangkat perangkat3 = new Laptop(
-                "L002",
-                "Acer",
-                "Aspire 5",
+        Perangkat perangkat3 = new LaptopGaming(
+                "LG001",
+                "ASUS",
+                "ROG Strix G15",
                 "Layar laptop bergaris"
         );
 
@@ -105,7 +104,6 @@ public class ServisController {
         );
 
         daftarServis.add(servis3);
-
 
         // =========================
         // DUMMY DATA 4
@@ -181,12 +179,26 @@ public class ServisController {
 
         if (pilihanJenis == 1) {
 
-            perangkat = new Laptop(
-                    idPerangkat,
-                    merk,
-                    tipe,
-                    kerusakan
-            );
+            int pilihanLaptop = pilihJenisLaptop();
+
+            if (pilihanLaptop == 1) {
+
+                perangkat = new Laptop(
+                        idPerangkat,
+                        merk,
+                        tipe,
+                        kerusakan
+                );
+
+            } else {
+
+                perangkat = new LaptopGaming(
+                        idPerangkat,
+                        merk,
+                        tipe,
+                        kerusakan
+                );
+            }
 
         } else {
 
@@ -447,6 +459,34 @@ public class ServisController {
 
             int pilihan =
                     inputAngka("Pilih jenis perangkat: ");
+
+            if (pilihan == 1 || pilihan == 2) {
+
+                return pilihan;
+
+            } else {
+
+                System.out.println(
+                        "Pilihan hanya 1 atau 2!"
+                );
+            }
+        }
+    }
+
+    // =========================
+    // PILIH JENIS LAPTOP
+    // =========================
+
+    private int pilihJenisLaptop() {
+
+        System.out.println("\n--- JENIS LAPTOP ---");
+        System.out.println("1. Laptop Biasa");
+        System.out.println("2. Laptop Gaming");
+
+        while (true) {
+
+            int pilihan =
+                    inputAngka("Pilih jenis laptop: ");
 
             if (pilihan == 1 || pilihan == 2) {
 
